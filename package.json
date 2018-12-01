@@ -1,0 +1,27 @@
+{
+  "name": "adventOfCode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "axios": "^0.18.0",
+    "chalk": "^2.4.1",
+    "jest": "^23.6.0",
+    "path": "^0.12.7"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FrankRose/adventOfCode.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FrankRose/adventOfCode/issues"
+  },
+  "homepage": "https://github.com/FrankRose/adventOfCode#readme"
+}
