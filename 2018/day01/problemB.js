@@ -1,28 +1,33 @@
-const getProblemInput = require('./util');
+const getInputData = require('./util');
 
 const problemB = frequencies => {
-  let currentFrequency = 0;
+  let current = 0;
   const resultFrequencies = {
-    0: true,
+    [current]: true,
   };
 
   let i = 0;
   let found = false;
-  let result;
 
   while (!found) {
-    currentFrequency += +frequencies[i++ % frequencies.length];
+    current += +frequencies[i++ % frequencies.length];
 
-    if (resultFrequencies[currentFrequency]) {
-      result = currentFrequency;
+    if (resultFrequencies[current]) {
       found = true;
-      return result;
+      return current;
     }
 
-    resultFrequencies[currentFrequency] = true;
+    resultFrequencies[current] = true;
   }
 };
 
-console.log('The value returned is:', problemB(['+1', '-1']));
+const solveProblemB = () => {
+  const frequencies = getInputData();
+  const solution = problemB(frequencies);
+
+  console.log(`The solution to day 01 problem B is ${solution}`);
+};
+
+solveProblemB();
 
 module.exports = problemB;

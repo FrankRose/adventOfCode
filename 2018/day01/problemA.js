@@ -10,9 +10,9 @@ const solveProblemA = () => {
   const frequencies = getInputData();
   const solution = problemA(frequencies);
 
-  console.log(`The solution to problem A is: ${solution}`);
+  console.log(`The solution to day 01 problem A is: ${solution}`);
 };
 
-console.log(solveProblemA());
+solveProblemA();
 
 module.exports = problemA;
