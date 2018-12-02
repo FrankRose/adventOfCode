@@ -13,6 +13,6 @@ const solveProblemA = () => {
   console.log(`The solution to day 01 problem A is: ${solution}`);
 };
 
-solveProblemA();
+// solveProblemA();
 
 module.exports = problemA;
