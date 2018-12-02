@@ -1,4 +1,5 @@
 /* eslint-disable no-return-assign */
+const path = require('path');
 const readInputFile = require('../utils/readInputFile');
 
 const problemA = ids => {
@@ -37,9 +38,11 @@ const problemA = ids => {
   return doublesCount * triplesCount;
 };
 
+// const codes = readInputFile(path.join(__dirname, 'day02Input.txt'));
+
 // (input => {
 //   const solution = problemA(input);
 //   console.log(`The solution for problem A is ${solution}`);
-// })(sampleInput);
+// })(codes);
 
 module.exports = problemA;
