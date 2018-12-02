@@ -1,4 +1,5 @@
-/* eslint-disable complexity */
+/* eslint-disable no-return-assign */
+const readInputFile = require('../utils/readInputFile');
 
 const problemA = ids => {
   let doublesCount = 0;
@@ -9,21 +10,23 @@ const problemA = ids => {
     const doubles = {};
     const triples = {};
 
+    const countFunctions = {
+      2: letter => (doubles[letter] = true),
+      3: letter => {
+        triples[letter] = true;
+        delete doubles[letter];
+      },
+      4: letter => {
+        triples[letter] && delete triples[letter];
+      },
+    };
+
     for (let i = 0; i < line.length; i++) {
       const letter = line[i];
       counts[letter] = (counts[letter] || 0) + 1;
 
-      if (counts[letter] === 2) {
-        doubles[letter] = true;
-      }
-
-      if (counts[letter] === 3) {
-        delete doubles[letter];
-        triples[letter] = true;
-      }
-
-      if (counts[letter] > 3 && triples[letter]) {
-        delete triples[letter];
+      if (countFunctions[counts[letter]]) {
+        countFunctions[counts[letter]](letter);
       }
     }
 
