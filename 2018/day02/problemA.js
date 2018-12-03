@@ -14,8 +14,8 @@ const problemA = ids => {
     }
 
     //  Casting a boolean to a number (true === 1 / false === 0)
-    doublesCount += +Object.keys(counts).some(letter => counts[letter] === 2);
-    triplesCount += +Object.keys(counts).some(letter => counts[letter] === 3);
+    doublesCount += +Object.values(counts).some(count => count === 2);
+    triplesCount += +Object.values(counts).some(count => count === 3);
   });
 
   return doublesCount * triplesCount;
