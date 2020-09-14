@@ -46,6 +46,35 @@ const problemA = input => {
   return Object.values(grid).filter(count => count > 1).length;
 };
 
-console.log(problemA(getRectangles()));
+const problemB = input => {
+  const rectangles = getRectangles();
+  const overlap = (alfa, bravo) =>
+    alfa.x < bravo.x + bravo.width &&
+    alfa.y < bravo.y + bravo.height &&
+    bravo.x < alfa.x + alfa.width &&
+    bravo.y < alfa.y + alfa.height;
+
+  const findLoneClaimId = () => {
+    for (let a = 0; a < rectangles.length; ++a) {
+      let loneClaim = true;
+      for (let b = 0; b < rectangles.length; ++b) {
+        if (a === b) continue;
+        if (overlap(rectangles[a], rectangles[b])) {
+          loneClaim = false;
+          break;
+        }
+      }
+
+      if (loneClaim) {
+        console.log(rectangles[a]);
+        return rectangles[a].id;
+      }
+    }
+  };
+};
+
+problemB();
+
+// console.log(problemA(getRectangles()));
 
 module.exports = problemA;
